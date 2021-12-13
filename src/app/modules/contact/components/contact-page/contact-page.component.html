@@ -1,1 +1,26 @@
-<p>contact-page works!</p>
+<p-dropdown
+  [options]="cities"
+  [(ngModel)]="selectedCity"
+  optionLabel="name"
+  optionValue="code"
+  (onChange)="onChangeDropdown($event)"
+></p-dropdown>
+
+<ng-container *ngIf="show; else xyz"> Hello World </ng-container>
+
+<ng-template #xyz>
+  <div>Hello Sujoy</div>
+</ng-template>
+
+<table style="border: 1px">
+  <tr>
+    <th>No.</th>
+    <th>Name</th>
+    <th>Code</th>
+  </tr>
+  <tr *ngFor="let item of cities; let i = index">
+    <td>{{ i + 1 }}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.code }}</td>
+  </tr>
+</table>
