@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { InboxItem } from '../../models/inbox.interface';
 
 @Component({
   selector: 'app-inbox',
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inbox.component.scss'],
 })
 export class InboxComponent implements OnInit {
+  @Input() cars: InboxItem[] = [];
+  @Output() clickEvent = new EventEmitter<boolean>();
   constructor() {}
 
   ngOnInit(): void {}
+
+  buttonClick() {
+    this.clickEvent.emit(true);
+  }
 }

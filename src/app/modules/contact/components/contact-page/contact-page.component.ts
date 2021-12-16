@@ -16,6 +16,8 @@ export class ContactPageComponent implements OnInit {
   ];
   selectedCity: City = { name: 'Rome', code: 'RM' };
   show: boolean = true;
+  name: string = '';
+  surName: string = '';
 
   constructor() {}
 
@@ -27,6 +29,9 @@ export class ContactPageComponent implements OnInit {
     //   { name: 'Istanbul', code: 'IST' },
     //   { name: 'Paris', code: 'PRS' },
     // ];
+
+    this.name = localStorage.getItem('name');
+    this.surName = sessionStorage.getItem('surName');
   }
 
   onChangeDropdown(event: any) {
