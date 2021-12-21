@@ -4,6 +4,7 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
 import { RouterModule } from '@angular/router';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [ContactPageComponent],
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     DropdownModule,
     FormsModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: '',

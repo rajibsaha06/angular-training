@@ -5,6 +5,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { ShortenTextPipe } from './pipes/shorten-text.pipe';
+import { NoSpecialCharactersDirective } from './directives/no-special-characters.directive';
 
 @NgModule({
   declarations: [
@@ -12,8 +14,15 @@ import { RouterModule } from '@angular/router';
     MenuComponent,
     HeaderComponent,
     FooterComponent,
+    ShortenTextPipe,
+    NoSpecialCharactersDirective,
   ],
   imports: [CommonModule, RouterModule],
-  exports: [HeaderComponent, FooterComponent],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    ShortenTextPipe,
+    NoSpecialCharactersDirective,
+  ],
 })
 export class SharedModule {}

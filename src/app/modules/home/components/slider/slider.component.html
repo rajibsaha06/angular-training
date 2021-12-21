@@ -1,0 +1,29 @@
+<ul>
+  <li
+    *ngFor="let item of data; let i = index"
+    #students
+    (click)="checkingViewChildren(i)"
+  >
+    {{ item?.name | shortenText: 4 | uppercase }}
+  </li>
+</ul>
+
+<br /><br />
+<div #student>Viewchild example</div>
+
+<button (click)="onClick()">Click</button>
+
+<br /><br />
+<div *ngIf="showHide">Show/Hide</div>
+<button (click)="onClickShowHide()">Show Hide Click</button>
+
+<br /><br />
+
+<div #el>Element Ref</div>
+<br /><br />
+<br /><br />
+
+<div [ngClass]="{ active: !showHide }">Adding Class based on condition</div>
+
+<br /><br />
+<br /><br />
