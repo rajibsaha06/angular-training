@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { SliderComponent } from './components/slider/slider.component';
 import { SharedModule } from '../shared/shared.module';
+import { HomeService } from './services/home.service';
 
 @NgModule({
   declarations: [DashboardComponent, InboxComponent, SliderComponent],
@@ -20,5 +21,6 @@ import { SharedModule } from '../shared/shared.module';
       },
     ]),
   ],
+  // providers: [HomeService],
 })
 export class HomeModule {}

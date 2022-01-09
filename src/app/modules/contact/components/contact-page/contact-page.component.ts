@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from 'src/app/modules/home/services/home.service';
 import { City } from '../../models/contact.interface';
 
 @Component({
@@ -19,9 +20,10 @@ export class ContactPageComponent implements OnInit {
   name: string = '';
   surName: string = '';
 
-  constructor() {}
+  constructor(private homeService: HomeService) {}
 
   ngOnInit(): void {
+    console.log(this.homeService.abc);
     // this.cities = [
     //   { name: 'New York', code: 'NY' },
     //   { name: 'Rome', code: 'RM' },
