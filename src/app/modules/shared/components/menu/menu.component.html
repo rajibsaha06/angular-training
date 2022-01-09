@@ -4,7 +4,22 @@
       <a [routerLink]="['/']" alt="">Home</a>
     </li>
     <li>
-      <a href="javascript:void(0)" (click)="goTo('contact')" alt="">Contact</a>
+      <a href="javascript:void(0)" (click)="goTo('contact')" alt=""
+        >Contact Page</a
+      >
+    </li>
+    <li>
+      <a href="javascript:void(0)" (click)="goTo('contact/form')" alt=""
+        >Contact Form</a
+      >
+    </li>
+    <li>
+      <a
+        href="javascript:void(0)"
+        (click)="goTo('contact/reactive-form')"
+        alt=""
+        >Reactive Form</a
+      >
     </li>
   </ul>
 </div>
