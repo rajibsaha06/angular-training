@@ -1,3 +1,12 @@
+<button type="button" (click)="broadcast()">Subject Fire</button>
+<div class="col-lg-12">
+  <div *ngIf="advice">
+    ID: {{ advice?.id }}
+    <br />
+    Advice: {{ advice?.advice }}
+  </div>
+</div>
+
 <ul>
   <li
     *ngFor="let item of data; let i = index"

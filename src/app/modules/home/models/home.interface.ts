@@ -8,3 +8,10 @@ export interface User {
     status: string;
   };
 }
+
+export interface Advice {
+  slip: {
+    id: number;
+    advice: string;
+  };
+}

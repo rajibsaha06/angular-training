@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { User } from '../models/home.interface';
+import { Advice, User } from '../models/home.interface';
 
 //@Injectable()
 
@@ -11,6 +11,11 @@ import { User } from '../models/home.interface';
 })
 export class HomeService {
   abc: number;
+  subjectExample = new Subject<boolean>();
+  subjectExample$ = this.subjectExample.asObservable();
+
+  behaviorSubjectExample = new BehaviorSubject<boolean>(false);
+  behaviorSubjectExample$ = this.behaviorSubjectExample.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -20,5 +25,13 @@ export class HomeService {
 
   getPosts(): Observable<any> {
     return this.http.get<any>(`${environment.apiPath}posts`);
+  }
+
+  getAdvices(): Observable<Advice> {
+    return this.http.get<any>(`${environment.apiPath2}advice`);
+  }
+
+  getAdviceById(id: number): Observable<Advice> {
+    return this.http.get<any>(`${environment.apiPath2}advice/${id}`);
   }
 }

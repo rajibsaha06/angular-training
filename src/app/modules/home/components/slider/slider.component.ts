@@ -1,10 +1,13 @@
 import {
   Component,
   ElementRef,
+  Input,
   OnInit,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
+import { Advice } from '../../models/home.interface';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-slider',
@@ -12,7 +15,9 @@ import {
   styleUrls: ['./slider.component.scss'],
 })
 export class SliderComponent implements OnInit {
-  constructor(private element: ElementRef) {
+  @Input() advice: Advice;
+
+  constructor(private element: ElementRef, private homeService: HomeService) {
     // let el = this.element.nativeElement;
     // el.setAttribute('style', 'color: white; background: red');
   }
@@ -51,5 +56,9 @@ export class SliderComponent implements OnInit {
 
   onClickShowHide() {
     this.showHide = !this.showHide;
+  }
+
+  broadcast() {
+    this.homeService.subjectExample.next(true);
   }
 }

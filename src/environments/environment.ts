@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiPath: 'https://gorest.co.in/public/v1/',
+  apiPath2: 'https://api.adviceslip.com/',
 };
 
 /*
