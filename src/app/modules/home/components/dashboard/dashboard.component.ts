@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { combineLatest, forkJoin, Observable, of, Subscription } from 'rxjs';
 import { InboxItem } from '../../models/inbox.interface';
 import { HomeService } from '../../services/home.service';
-import { catchError, finalize, map, mergeMap } from 'rxjs/operators';
+import { catchError, finalize, map, mergeMap, tap } from 'rxjs/operators';
 import { Advice } from '../../models/home.interface';
 
 @Component({
@@ -50,10 +50,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
     //   catchError((err) => of(null))
     // );
 
+    this.loader = true;
     this.advices2$ = combineLatest([
       this.homeService.getAdvices(),
       this.homeService.getAdviceById(125),
     ]).pipe(
+      tap(() => (this.loader = false)),
       map((result) => {
         return result?.map((data) => data?.slip);
       }),
